@@ -22,3 +22,25 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+##usersテーブル
+|Cokum|type|Options|
+|-----|----|-------|
+|id|integer|null: false, foreign_key: true|
+|password|text|null: false, foreign_key: true|
+|email|text|null: false, foreign_key: true|
+
+##groupテーブル
+|Cokum|type|Options|
+|-----|----|-------|
+|id|integer|null: false, foreign_key: true|
+|groupname|string|null: false, foreign_key: true|
+|masseage|string|null: false, foreign_key: true|
+|image|integer|null: false, foreign_key: true|
+|timestamp|integer|null: false, foreign_key true|
+
+##groups_usersテーブル
+|Cokum|type|Options|
+|-----|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+|username|string|null: false, foreign_key: true|
