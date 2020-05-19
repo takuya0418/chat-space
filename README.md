@@ -23,25 +23,34 @@ Things you may want to cover:
 
 * ...
 
-##usersテーブル
+## usersテーブル
 |Colum|type|Options|
 |-----|----|-------|
-|id|integer|null: false, foreign_key: true|
-|password|text|null: false, foreign_key: true|
-|email|text|null: false, foreign_key: true|
+|id|integer|null: false, unique: true|
+|password|text|null: false|
+|email|text|null: false, unique: true|
+### Association
+- has_many :groups
 
-##groupテーブル
+## groupsテーブル
 |Colum|type|Options|
 |-----|----|-------|
-|id|integer|null: false, foreign_key: true|
-|groupname|string|null: false, foreign_key: true|
-|masseage|string|null: false, foreign_key: true|
-|image|integer|null: false, foreign_key: true|
-|timestamp|integer|null: false, foreign_key true|
+|id|integer|null: false, unique: true|
+|groupname|string|null: false|
+|masseage|string|null: false|
+|image|integer|null: false|
+|timestamp|integer|null: false|
+### Association
+- has_many :users
 
-##groups_usersテーブル
+## groups_usersテーブル
 |Colum|type|Options|
 |-----|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
-|username|string|null: false, foreign_key: true|
+|username|string|null: false|
+
+### Association
+- belongs_to :user
+- belongs_to :group
+
