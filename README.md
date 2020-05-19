@@ -27,6 +27,7 @@ Things you may want to cover:
 |Colum|type|Options|
 |-----|----|-------|
 |id|integer|null: false, unique: true|
+|username|string|null: false|
 |password|text|null: false|
 |email|text|null: false, unique: true|
 ### Association
@@ -48,7 +49,7 @@ Things you may want to cover:
 |-----|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
-|username|string|null: false|
+
 
 ### Association
 - belongs_to :user
