@@ -59,10 +59,10 @@ Things you may want to cover:
 ## messagesテーブル
 |Colum|type|Options|
 |-----|----|-------|
-|id|integer|null: false, unique: true|
-|masseage|string|null: false|
-|image|integer|null: false|
-|timestamp|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+|message|string||
+|image|string||
 
 ### Association
 - belongs_to :user
