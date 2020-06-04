@@ -2,3 +2,116 @@
   box-sizing: border-box;
 }
 
+.chat_main {
+  background-color: $white;
+  width: calc(100vw - 300px);
+  float: right;
+  height: 100vh;
+}
+.header {
+  width: 100%;
+  height: 100px;
+  background-color: #eeeeee;
+  padding: 0 40px;
+
+  .main-header {  
+    float: left;
+    &__title{
+      color: #000;;
+      font-size: 20px;
+      padding-top: 35px;  
+    }
+    &__members {
+      color: #999;
+      display: flex;
+      font-size: 12px;
+      margin-top: 15px;
+      .member {
+        display: inline-block;
+        padding-right: 5px;
+      }
+    }
+  }
+}
+.sub-header {
+  float: right;
+  color: $light_blue;
+  border: solid 1px $light_blue;
+  height: 40px;
+  line-height: 40px;
+  margin-top: 28px;
+  padding: 0 20px;
+}
+
+.messages{
+  box-sizing: border-box;
+  padding: 46px 40px ;
+  height: calc(100vh - 190px);
+  overflow: scroll;
+  background-color: #fafafa;
+
+  .message{
+    .upper-info{
+      display: flex;
+      &__name{
+        color: #333333;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      &__date{
+        color: #999999;
+        font-size: 12px;
+        margin-left: 10px;
+      }
+    }
+    &__text{
+      font-size: 14px;
+      color: #434a54;
+      margin-top: 10px;
+      margin-bottom: 40px;
+
+    }
+  }
+}
+
+.form{
+  background-color: #d2d2d2;
+  height: 90px;
+  box-sizing: border-box;
+  padding: 20px 50px 20px 40px;
+
+  &__message{
+    display: flex;
+    &__text{
+      border: none;
+      height: 50px;
+      background-color: $white;
+      width: 100%;
+      position: relative;
+      .form__imput{
+        background-color: $white;
+        height: 50px;
+        padding-right: 10px;
+        width: 100%;
+        &__image {
+          font-size: 20px;
+          line-height: 50px;
+          position: absolute;
+          right: 10px;
+          .hidden {
+            display: none;
+          }
+        }
+      }
+    }
+    .form__submit{
+      background-color: $light_blue;
+      color: $white;
+      width: 100px;        
+      height: 50px;
+      padding: 0 30px;
+      margin-left: 15px;
+      border: none;
+    }
+  }
+}
