@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
 
   def index
   end
-  
+
   def new
     @group = Group.new
     @group.users << current_user
@@ -18,7 +18,7 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    @grou = Group.find(params[:id])
+    @group = Group.find(params[:id])
   end
 
   def update
