@@ -17,7 +17,6 @@
   .messages
     .message
       .upper-info
-        .upper-info__name
           test
         .upper-info__date
           test
@@ -32,13 +31,15 @@
       .message__text
         test
 
+    = render @messages
+  
   .form
-    .form__message
-      .form__message__text
-        %input.form__imput{:placeholder => "type a message"}
-          %label.form__imput__image
-            = icon('fa', 'image', class: 'image')
-            %input.hidden{type: 'file'}
-      %input.form__submit{type: 'submit', value: 'Send'}
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+      .form__message
+        = f.label :image, class: 'form__message__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'form__submit'
 
-
+      
