@@ -4,15 +4,15 @@ $(function(){
    if ( message.image ) {
      var html =
       `<div class="message">
-         <div class="upper-message">
-           <div class="upper-message__user-name">
+         <div class="upper-info">
+           <div class="upper-info__name">
              ${message.user_name}
            </div>
-           <div class="upper-message__date">
+           <div class="upper-info__date">
              ${message.created_at}
            </div>
          </div>
-         <div class="lower-message">
+         <div class="message__text">
            <p class="lower-message__content">
              ${message.content}
            </p>
@@ -23,15 +23,15 @@ $(function(){
    } else {
      var html =
       `<div class="message">
-         <div class="upper-message">
-           <div class="upper-message__user-name">
+         <div class="upper-info">
+           <div class="upper-info__name">
              ${message.user_name}
            </div>
-           <div class="upper-message__date">
+           <div class="upper-info__date">
              ${message.created_at}
            </div>
          </div>
-         <div class="lower-message">
+         <div class="message__text">
            <p class="lower-message__content">
              ${message.content}
            </p>
