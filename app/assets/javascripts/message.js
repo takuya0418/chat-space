@@ -3,7 +3,7 @@ $(function(){
   function buildHTML(message){
    if ( message.image ) {
      var html =
-      `<div class="message">
+      `<div class="message" data-message-id=${message.id}>
          <div class="upper-info">
            <div class="upper-info__name">
              ${message.user_name}
@@ -22,7 +22,7 @@ $(function(){
      return html;
    } else {
      var html =
-      `<div class="message">
+      `<div class="message" data-message-id=${message.id}>
          <div class="upper-info">
            <div class="upper-info__name">
              ${message.user_name}
@@ -40,27 +40,30 @@ $(function(){
     return html;
     };
   }
-  $('#new_message').on('submit', function(e){
-    e.preventDefault();
-    var formData = new FormData(this);
-    var url = $(this).attr('action')
+  var reloadMessages = function() {
+    var last_message_id = $('.message:last').data("message-id");
     $.ajax({
-      url: url,
-      type: "POST",
-      data: formData,
+      url: "api/messages",
+      type: 'get',
       dataType: 'json',
-      processData: false,
-      contentType: false
+      data: {id: last_message_id}
     })
-    .done(function(data){
-      var html = buildHTML(data);
-      $('.messages').append(html);
-      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');   
-      $('form')[0].reset();
+    .done(function(messages) {
+      if (messages.length !== 0) {
+      var insertHTML = '';
+      $.each(messages, function(i, message) {
+        insertHTML += buildHTML(message)
+      });
+      $('.messages').append(insertHTML);
+      $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
+      }
     })
-    .fail(function(){
+    .fail(function() {
       alert('error');
     });
-    return false;
-  });
+    setInterval(reloadMessages, 7000);
+    if (document.location.href.match(/\/groups\/\d+\/messages/)) {
+      setInterval(reloadMessages, 7000);
+    }
+  };
 });
